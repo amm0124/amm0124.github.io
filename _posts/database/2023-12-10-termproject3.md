@@ -1,5 +1,5 @@
 ---
-title: db_termproject(3)
+title: db_termproject(3) - 여러가지 기능들
 date: 2023-12-10 00:30:00 +
 categories: [Database, termproject]
 ---

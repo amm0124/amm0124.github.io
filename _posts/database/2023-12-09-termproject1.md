@@ -1,5 +1,5 @@
 ---
-title: db_termproject(1)
+title: db_termproject(1) - 사용자 구현
 date: 2023-12-9 23:00:00 +
 categories: [Database, termproject]
 ---

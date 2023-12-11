@@ -1,5 +1,5 @@
 ---
-title: db_termproject(4)
+title: db_termproject(4) - view and authorization
 date: 2023-12-11 00:30:00 +
 categories: [Database, termproject]
 ---

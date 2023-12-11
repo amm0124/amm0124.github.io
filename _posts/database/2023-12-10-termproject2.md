@@ -1,5 +1,5 @@
 ---
-title: db_termproject(2)
+title: db_termproject(2) - product
 date: 2023-12-10 00:10:00 +
 categories: [Database, termproject]
 ---
