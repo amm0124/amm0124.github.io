@@ -57,12 +57,13 @@ vip 등급은 3000원씩, 일반 회원은 1000원씩 환급이 됩니다.
 
 #### seller schema 
 
-[administor_table] 생성 쿼리
+[seller_table] 생성 쿼리
 
-    create table administor_table(
-		administor_id varchar primary key,
-		administor_pw varchar
-	); 
+    create table seller_table(
+		seller_id varchar primary key,
+		seller_pw varchar
+	);
+
 
 
 ### administor 
@@ -72,12 +73,12 @@ vip 등급은 3000원씩, 일반 회원은 1000원씩 환급이 됩니다.
 
 #### administor schema
 
-[seller_table] 생성 쿼리
+[administor_table] 생성 쿼리
 
-    create table seller_table(
-		seller_id varchar primary key,
-		seller_pw varchar
-	);
+    create table administor_table(
+		administor_id varchar primary key,
+		administor_pw varchar
+	); 
 
 
 ### 마무리하며

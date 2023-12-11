@@ -47,10 +47,10 @@ seller가 더 이상 그 품목을 팔지 않을 때) 장바구니에서 바로 
 
     create table wishlist(
         customer_id varchar,
-        product_subcode varchar,
+        product_subcode int,
         count int,
         foreign key (customer_id) references customer_table(customer_id) on delete cascade on update cascade,
-        foreign key (product_subcode) references product_table (subcode) on delete cascade on update cascade
+        foreign key (product_subcode) references sub_product (subcode) on delete cascade on update cascade
     );
 
 
@@ -62,132 +62,83 @@ product_table에 있는 subcode를 foreign key로 가져야 합니다.
 
 customer_id가 변경되면, QnA 게시판에 있는 customer_id도 변경되게 ON UPDATE CASCADE 설정을 하였습니다. 
 만약 삭제가 된다면, 삭제 되어야 하기 보단 ON DELDET SET NULL옵션을 주어, 다른 customer들도 볼 수 있도록 설정을 하였습니다. 
-
 subcode가 변경 된다면, 당연히 update가 되어야 할 것입니다.
-subcode가 삭제 된다면, ??????
-
-subcode가 삭제되는 경우는 두 가지가 있는데, 첫 번째는 상위 코드가 삭제되어, 하위 코드들이 다 삭제가 되는 경우와, 그냥 하위 코드가 삭제가 되는 경우가 있습니다.
-
-
-customer_id, subcode가 삭제되어도 글을 삭제할 필요는 없기에, on delete 옵션을 default 값으로 설정했습니다.
-변경되면 UPDATE합니다.
+subcode가 삭제 된다면, 딱히 QnA는 없어도 되기에, ON DELETE CASCADE를 사용하여 삭제할 수 있도록 하였습니다.
 
 ### query code
 
+    create TABLE QnA(
+        customer_id VARCHAR,
+        product_subcode int, 
+        question varchar DEFAULT NULL,
+        answer varchar DEFAULT NULL,
+        foreign key (customer_id) references customer_table(customer_id) on delete SET NULL on update cascade,
+        foreign key (product_subcode) references sub_product (subcode) on delete cascade on update cascade 
+    );
 
 
+## 주문 및 리뷰(order_table)
 
-## 주문 및 주문 기록(order_table)
+### 주문 
 
 주문은 이벤트, 장바구니, QnA보다 살짝 더 복잡합니다.
 customer_table에 있는 customer_id를 foreign key로 가져야 합니다.
 product_table에 subcode를 foreign key로 가져야 합니다.
+seller_table에 있는 subcode를 foreign key로 가져야 합니다.
+
 또한 customer_table에 있는 point가 product_table의 product_price보다 작다면 주문을 할 수 없습니다.
-만약 주문이 성사됐다면, order_table에 customer_id, 주문 수량(count), 1개당 판매 가격을 기록합니다.
+만약 주문이 성사됐다면, order_table에 customer_id, seller_id, 주문 수량(count), 1개당 판매 가격을 기록합니다.
+또한, 각 주문마다 order_code를 주어, data를 구분하였습니다. order_time_stamp라는 값을 주어, 만약 주문 후 1주일이 지났다면, 환불을 하지 못하도록 구현하였습니다.
+
 subcode가 삭제되어도 주문 기록을 삭제할 필요는 없기에, on delete 옵션을 NO ACTION으로 설정했습니다.
-customer_id가 삭제 된다면 기록은 남겨두지만, customer_id를 지워야 하기 때문에 ON DELETE 옵션을 SET DEDAULT로 설정했습니다. NULL로 설정하면 primary key는 null을 사용하면 안된다는 무결성 제약이 깨지기 때문입니다.
-변경된다면 자동으로 변경되도록 ON UPDATE 옵션을 CASCADE로 설정하였습니다.
-
-뒤에서 나오는 리뷰 이야기를 살짝 미리 하자면, subcode와 customer_id를 primary key로 설정하여
-review_table에서 참조합니다.
+customer_id가 삭제 된다면 기록은 남겨두지만, customer_id를 지워야 하기 때문에 ON DELETE 옵션을 SET NULL로 설정했습니다. 
+seller_id가 삭제 되어도 주문 기록을 삭제할 필요는 없기에, on delete 옵션을 SET NULL로 설정했습니다.
 
 
-### query code
+#### review table 시행 착오
 
-[order_table] 생성 쿼리
+처음에는 customer_id, product_subcode를 foreign key로 갖는 review_table을 만들려고 했습니다.
+따라서 order_table에서 customer_id, product_subcode를 primairy key로 지정했습니다.
+하지만 이 경우, ON DELETE SET NULL option을 주면 primary key는 NULL이 되면 안된다는 무결성 제약 조건을 위배하게 됩니다. 따라서, 참조를 하지 않고 그냥 하나의 table로 합치자는 생각을 했습니다.  
 
-    create table order_table(
-        customer_id varchar,
-        product_subcode varchar,
-        count INT,
-        price_per_1 INT,
-        foreign key (customer_id) references customer_table(customer_id) on delete SET DEFAULT on update cascade,
-        foreign key (product_subcode) references product_table (subcode) on delete NO ACTION on update cascade,
-        primary key (product_subcode, customer_id)
-    );
+### 리뷰 
 
-
-## 리뷰 (review_table)
-
-리뷰를 하기 위해선 order_table에 있는 data를 foreign key로 가져야 합니다.
-주문을 하지 않고선 리뷰를 남길 수 없기 때문입니다. 
-따라서 order_table에 subcode(상품 하위 코드)와 customer_id를 foreign key로 가져야 합니다.
-
-또한, height, weight column도 존재합니다. 이는 꼭 customer의 height와 weight를 사용하지 않아도 됩니다.
+height, weight column이 존재합니다. 이는 꼭 customer의 height와 weight를 사용하지 않아도 됩니다.
 왜냐하면 선물로 사용되는 경우도 있기 때문입니다. 기본으로 customer의 height, weight를 리뷰에 사용하되,
 customer의 옵션에 따라서 새롭게 height와 weight를 저장합니다.
-마지막으로, review의 내용(content)가 존재합니다.
-
-order_table의 data가 삭제 되는 경우는, 환불을 할 때 입니다.
-이 경우, 이미 customer가 review를 썼다면, 환불을 할 수 없습니다.
-따라서 삭제 조건을 ON DELETE RESTRICT로 설정하였습니다.
-
-review_table에서 subcode는 order_table에서 참조하므로,
-subcode가 삭제되면 review_table에서도 삭제하고, 변경되면 UPDATE합니다.
-
-customer가 탈퇴하거나, seller가 탈퇴하거나, 상품 상위, 하위 코드가 삭제되면, review_table에서 foreign key를 끊고, 삭제한 후, 다시 foreign key로 연결합니다.
+마지막으로, review의 내용(review_content)과 별점(review_point)가 존재합니다.
 
 ### query code
 
-[review_table] 생성 쿼리
+[order_review_table] 생성 쿼리
 
-    create table review_table(
+    CREATE TABLE order_review_table (
+        order_code int,
+        seller_id varchar,
+        product_subcode int,
+        count INT,
+        price_per_1 INT,
         customer_id varchar,
-        product_subcode varchar,
-        content varchar,
-        foreign key (product_subcode, customer_id) references order_table(product_subcode, customer_id) ON DELETE RESTRICT ON UPDATE CASCADE
+        order_start_time timestamp,
+        review_point int DEFAULT NULL CHECK (review_point >= 0 AND review_point <= 10),
+        review_content varchar DEFAULT NULL,
+        FOREIGN KEY (customer_id) REFERENCES customer_table(customer_id) ON DELETE SET NULL ON UPDATE CASCADE,
+        FOREIGN KEY (product_subcode) REFERENCES sub_product (subcode) ON DELETE NO ACTION ON UPDATE CASCADE,
+        FOREIGN KEY (seller_id) REFERENCES seller_table(seller_id) ON DELETE SET NULL ON UPDATE CASCADE
     );
+
+## User별 Diagram
+
+![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/f4e868ed-8269-4d37-ba78-c0295582b91f)
+
+최종적으로 이렇게 완성이 되네요. <br> 
+맨 처음에 4개 foreign key를 사용한 것 보다 제가 보기엔 깔끔하게 생긴 듯 합니다.
 
 
 ## 사이즈 추천
 
 customer가 사이즈 추천을 원하는 subcode를 입력합니다. customer가 선물을 할 수 있기에, 옵션으로 height, weight를 입력받습니다. 옵션을 선택하지 않으면, 기본 값으로 customer의 height와 weight가 선택됩니다. review_table에서 subcode를 기준으로 10점 중 7점 이상인 row의 height와 weight만 select해서 이러한 data를 기반으로 dataframe을 만듭니다. sklearn.tree로부터 불러온 DecisionTreeRegressor를 사용해서 사이즈를 추천합니다.
 
+### 마무리하며
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### query code
-
-[event_table] 생성 쿼리
-
-    CREATE TABLE event_table (
-        event_candidate_customer_id varchar,
-        FOREIGN KEY (event_candidate_customer_id) REFERENCES customer_table(customer_id) ON DELETE CASCADE ON UPDATE CASCADE
-    );
-
-[wishlist] 생성 쿼리
-
-    create table wishlist(
-        customer_id varchar,
-        product_subcode varchar,
-        foreign key (customer_id) references customer_table(customer_id) on delete cascade on update cascade,
-        foreign key (product_subcode) references product_table (subcode) on delete cascade on update cascade
-    );
-
-[QnA_table] 생성 쿼리
-
-    create table QnA_table(
-        customer_id varchar,
-        product_subcode varchar,
-        content varchar,
-        foreign key (customer_id) references customer_table(customer_id) on delete SET NULL on update cascade,
-        foreign key (product_subcode) references product_table (subcode) on delete SET NULL on update cascade
-    );
-
-
-
-
-<!-- 여기까지했습니다..>
-
+다음 글에선 ROLE 설정 및 VIEW 설정에 대해 다뤄보겠습니다.
