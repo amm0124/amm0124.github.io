@@ -71,7 +71,9 @@ subcode가 삭제 된다면, 딱히 QnA는 없어도 되기에, ON DELETE CASCAD
         customer_id VARCHAR,
         product_subcode int, 
         question varchar DEFAULT NULL,
+        seller_id varchar,
         answer varchar DEFAULT NULL,
+        qna_num INT,
         foreign key (customer_id) references customer_table(customer_id) on delete SET NULL on update cascade,
         foreign key (product_subcode) references sub_product (subcode) on delete cascade on update cascade 
     );
@@ -122,6 +124,8 @@ customer의 옵션에 따라서 새롭게 height와 weight를 저장합니다.
         order_start_time timestamp,
         review_point int DEFAULT NULL CHECK (review_point >= 0 AND review_point <= 10),
         review_content varchar DEFAULT NULL,
+        user_height INT,
+        user_weight INT,
         FOREIGN KEY (customer_id) REFERENCES customer_table(customer_id) ON DELETE SET NULL ON UPDATE CASCADE,
         FOREIGN KEY (product_subcode) REFERENCES sub_product (subcode) ON DELETE NO ACTION ON UPDATE CASCADE,
         FOREIGN KEY (seller_id) REFERENCES seller_table(seller_id) ON DELETE SET NULL ON UPDATE CASCADE

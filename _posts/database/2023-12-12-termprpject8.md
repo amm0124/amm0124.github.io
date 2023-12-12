@@ -105,11 +105,11 @@ customer가 품목을 구매 하려면, seller가 품목을 등록해야지 살 
         else:
             print("판매자 메인 페이지로 돌아갑니다.")
 
-    ![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/8d912d5b-17a2-4c57-9dc6-2683cb9aaec0)
+![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/8d912d5b-17a2-4c57-9dc6-2683cb9aaec0)
 
-    indexerror가 나는데 이유는, 지금 아무런 상품이 등록되어 있지 않기 때문입니다.
-    제일 마지막 row의 code +1을 발급해주는데 현재, 아무런 row가 없는 상태기 때문입니다.
-    따라서, 이 부분을
+indexerror가 나는데 이유는, 지금 아무런 상품이 등록되어 있지 않기 때문입니다.
+제일 마지막 row의 code +1을 발급해주는데 현재, 아무런 row가 없는 상태기 때문입니다.
+따라서, 이 부분을
 
         """#if top_product_code == [] :
         #    top_product_code =1
@@ -126,7 +126,7 @@ customer가 품목을 구매 하려면, seller가 품목을 등록해야지 살 
 subcode도 마찬가지입니다.
 topcode와 겹치는건 별로니, 2023000001을 초기 코드로 설정하였습니다.
 완성된 최종 코드를 첨부하겠습니다.
-또한 저렇게 코드를 사용하면, 상위 product에 subcode가 묶이는 것이 아닌 그냥 1:1 mapping이 됩니다.
+또한 저렇게 코드를 사용하면, 상위 product에 subcode가 묶이는 1대 다(hasMany) mapping이 아닌 그냥 1:1 mapping이 됩니다.
 따라서 코드를 수정해야 합니다.
 
     def add_product(seller_id):

@@ -29,10 +29,19 @@ categories: [Database, termproject]
 
 product view를 만들 수 있습니다. 왜냐하면 product는 3개의 table로 구성이 되어있기 때문입니다.
 
-    CREATE VIEW product_view AS
-        SELECT sp.subcode, tp.sub_category, tp.top_category, tp.product_name, tp.product_explain, 
-       sp.product_size, sp.product_color, sp.product_price, sp.product_count, tp.product_seller
-        FROM top_product tp
+    CREATE OR REPLACE VIEW public.product_view
+        AS SELECT sp.subcode, 
+        tp.sub_category,
+        tp.top_category,
+        tp.product_name,
+        tp.product_explain,
+        sp.product_size,
+        sp.product_color,
+        sp.product_price,
+        sp.product_count,
+        tp.product_seller,
+        tp.topcode
+    FROM top_product tp
         JOIN code_mapping_table cmt ON tp.topcode = cmt.topcode
         JOIN sub_product sp ON sp.subcode = cmt.subcode;
 
