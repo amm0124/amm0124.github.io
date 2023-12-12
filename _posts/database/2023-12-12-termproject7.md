@@ -1,6 +1,6 @@
 ---
 title: db_termproject(7) - customer 메인 페이지 및 포인트 충전 및 계정 수정
-date: 2023-12-12 00:00:05 +
+date: 2023-12-12 03:03:00 +
 categories: [Database, termproject]
 ---
 
@@ -106,24 +106,24 @@ print_customer_main_page() 함수가 작동합니다.
 약간 아쉬움이 남습니다. 다른 프로젝트 할 때, 결제 API도 사용해 보도록 하겠습니다.
 아무튼 포인트를 충전하는 함수 charging_point(customer_id)에 대해 살펴보도록 하겠습니다.
 
-def charging_point(customer_id):
-    global user_con
-    print("포인트 충전 페이지입니다!")
+    def charging_point(customer_id):
+        global user_con
+        print("포인트 충전 페이지입니다!")
 
-    while True:
-        want_charging_point = input("충전하고 싶은 포인트를 입력하세요 : ")
-        if want_charging_point.isdigit():
-            break
-        else:
-            print("잘못된 입력입니다. 정수형으로 입력하세요. ")
+        while True:
+            want_charging_point = input("충전하고 싶은 포인트를 입력하세요 : ")
+            if want_charging_point.isdigit():
+                break
+            else:
+                print("잘못된 입력입니다. 정수형으로 입력하세요. ")
 
-    want_charging_point = int(want_charging_point)
+        want_charging_point = int(want_charging_point)
 
-    cursor = user_con.cursor()
-    update_query = f"UPDATE customer_table SET point = point + {want_charging_point} WHERE customer_id = '{customer_id}';"
-    cursor.execute(update_query)
-    user_con.commit()
-    print("포인트 충전 완료! 메인 페이지로 이동합니다.")
+        cursor = user_con.cursor()
+        update_query = f"UPDATE customer_table SET point = point + {want_charging_point} WHERE customer_id = '{customer_id}';"
+        cursor.execute(update_query)
+        user_con.commit()
+        print("포인트 충전 완료! 메인 페이지로 이동합니다.")
 
 ![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/76de9750-9097-4b7b-8464-9f213042f76f)
 
@@ -245,5 +245,6 @@ test4@naver.com 삭제를 한 번 해보도록 하겠습니다.
     
 ### 마무리하며
 
-다음 글에선 품목 구매 및 조회 기능에 대해 살펴보겠습니다.
+품목 구매 및 조회 기능를 하려면, 판매자의 품목 등록이 먼저입니다.
+따라서 다음 글에선 seller 품목 등록도 살펴 보겠습니다.
 밤이 깊어서 집에 가야할 듯 합니다..

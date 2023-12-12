@@ -76,6 +76,10 @@ role을 만든 후,
     GRANT ALL ON TABLE public.customer_table TO customer;
     GRANT ALL ON TABLE product_view TO customer;
     GRANT ALL ON TABLE order_review_view TO customer;
+    GRANT ALL ON TABLE public.sub_product TO customer;
+    GRANT ALL ON TABLE public.top_product TO customer;
+    GRANT ALL ON TABLE public.code_mapping_table TO customer;
+
 
 주문, 리뷰, 장바구니, QnA, 개인 정보에 권한을 부여하였습니다.
 
@@ -98,7 +102,11 @@ role을 만든 후,
     GRANT ALL ON TABLE public.seller_table TO seller;
     GRANT ALL ON TABLE product_view TO seller;
     GRANT ALL ON TABLE order_review_view TO seller;
+    GRANT ALL ON TABLE public.sub_product TO seller;
+    GRANT ALL ON TABLE public.code_mapping_table TO seller;
+    GRANT ALL ON TABLE public.top_product TO seller;
 
+로 품목, 주문, QnA, 개인 정보에 권한을 부여하였습니다.
 
 ## administor 
 
