@@ -1,6 +1,6 @@
 ---
 title: db_termproject(16) - seller 기능 구현(2) QnA 답변
-date: 2023-12-12 16:00:00 +
+date: 2023-12-12 22:00:00 +
 categories: [Database, termproject]
 ---
 
@@ -99,6 +99,8 @@ seller로도 빠르게 가입했습니다.
 ![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/cf2a9745-ef6b-45a3-843c-9e014a7ec1c7)
 
 메일을 보내기 위해서 귀찮지만 앱 비밀번호를 발급받아야 합니다.
+제가 상세하게 하는 방법을 써 놨으니 한 번 해보실 분은 해보시길 바랍니다.
+
 
 ![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/b6a76670-7bc4-4a29-add5-19a9e6b7dcca)
 

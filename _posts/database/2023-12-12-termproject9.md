@@ -1,6 +1,6 @@
 ---
 title: db_termproject(9) - customer 품목 조회 및 구매
-date: 2023-12-12 11:40:00 +
+date: 2023-12-12 13:00:00 +
 categories: [Database, termproject]
 ---
 

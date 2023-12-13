@@ -1,6 +1,6 @@
 ---
 title: db_termproject(15) - seller 기능 구현
-date: 2023-12-12 16:00:00 +
+date: 2023-12-12 21:00:00 +
 categories: [Database, termproject]
 ---
 

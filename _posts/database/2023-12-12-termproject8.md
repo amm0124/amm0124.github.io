@@ -1,6 +1,6 @@
 ---
 title: db_termproject(8) - seller 로그인 및 품목 등록
-date: 2023-12-12 11:00:00 +
+date: 2023-12-12 11:40:00 +
 categories: [Database, termproject]
 ---
 
@@ -229,6 +229,20 @@ sub product
 view에도 정상적으로 삽입되는 모습을 볼 수 있습니다.
 
 ![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/fb0a8532-8a8f-4507-940f-fefc9cd8e5cc)
+
+[2023.12.13 추가]
+
+물건을 삽입할 때, 1대 다 관계가 되는지 테스트를 하지 않았습니다.
+
+![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/ca3f51a5-0d20-4799-be8f-cf7e73ae0181)
+
+실행은 잘 됐고, DBeaver에서 하나의 topcode에 대해, 여러 개의 subcode를 가질 수 있는지<br>
+즉 1대 다 mapping이 잘 되는지 확인해보도록 하겠습니다.
+
+![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/d4c361ee-ac6e-406d-b896-7d257b9a9540)
+
+
+잘 되네요! mapping table을 사용해서, table 관리를 구현을 성공했습니다.
 
 
 ### 마무리하며

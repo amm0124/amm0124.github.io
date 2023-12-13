@@ -1,6 +1,6 @@
 ---
 title: db_termproject(14) - 고객 사이즈 추천
-date: 2023-12-12 16:00:00 +
+date: 2023-12-12 20:00:00 +
 categories: [Database, termproject]
 ---
 

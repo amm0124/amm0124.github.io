@@ -1,6 +1,6 @@
 ---
 title: db_termproject(12) - 이벤트 참여 및 장바구니 사용(1)
-date: 2023-12-12 16:00:00 +
+date: 2023-12-12 17:00:00 +
 categories: [Database, termproject]
 ---
 
