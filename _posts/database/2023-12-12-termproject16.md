@@ -86,9 +86,9 @@ seller로도 빠르게 가입했습니다.
 
         # (*)메일의 발신자 메일 주소, 수신자 메일 주소, 앱비밀번호(발신자)
 
-        #sender = input("보내는 사람의 구글 계정을 입력해주세요.")
-        #receiver = input("받는 사람의 구글 계정을 입력해주세요.")
-        #app_password = input("16자리 앱 비밀번호를 입력해주세요 : ")
+        sender = input("보내는 사람의 구글 계정을 입력해주세요.")
+        receiver = input("받는 사람의 구글 계정을 입력해주세요.")
+        app_password = input("16자리 앱 비밀번호를 입력해주세요 : ")
 
         with smtplib.SMTP('smtp.gmail.com', 587) as s:  # TLS 암호화
             s.starttls()

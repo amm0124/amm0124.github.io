@@ -6,6 +6,8 @@ categories: [Database, termproject]
 
 # database termproject 주제
 
+Git repository link : https://github.com/amm0124/2023_db_termproject/tree/main  입니다! 
+
 데이터베이스 텀프로젝트 주제로 쇼핑몰을 선정했습니다.<br>
 주제 선정을 쇼핑몰로 한 이유에 대해 간략하게 말씀드리자면. .. <br>
 

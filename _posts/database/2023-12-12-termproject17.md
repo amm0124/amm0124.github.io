@@ -175,6 +175,10 @@ seller4@naver.com의 판매 기록을 하나 추가하겠습니다.
 길고 길었던 database 텀프로젝트가 끝났습니다.
 급하게 하느라, 에러 처리도 미흡하게 끝난 경향이 있지만, 그래도 재밌었습니다.
 GUI 구현도 좀 아쉽긴 하네요. 아무쪼록 마무리가 되어서 기분이 좋습니다!
+
+https://github.com/amm0124/2023_db_termproject/tree/main 
+에 소스코드 전체가 있습니다!
+
 <br>
 방학 땐, java spring 공부를 해보려고 합니다.
 그 때 spring framework를 사용한 좀 더 업그레이드 한 쇼핑몰 구축으로 돌아오겠습니다.
