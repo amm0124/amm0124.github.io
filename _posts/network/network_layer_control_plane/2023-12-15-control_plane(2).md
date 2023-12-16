@@ -71,5 +71,38 @@ cost[s][neighborhood_node] = min (cost[s][neighborhood_node] , cost[s][w] + cost
 이는 O(nm)의 시간 복잡도가 필요한 상황이죠. n은 보통 m과 유사하기에, O(n*n)의 시간 복잡도가 필요한 것이죠.
 뭐 우선순위 큐를 사용하면 최솟값을 찾는데 logn의 시간이 걸릴 것이므로, O(n*logn)의 시간이 걸릴 수 있지만 네트워크 상에선 보통 O(n*n)이 걸린다고 볼 수 있습니다. 매우 좋지 않은 상황이죠.
 
+이러한 단점도 있고, 또한 진동 문제가 일어날 수가 있다는 것입니다.
+![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/0e2e3987-87af-4a33-a9a3-7b05b354871e)
 
+### oscillation problem
+
+진동 문제가 뭘까요?
+![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/96aa5854-51b0-41e5-91c7-d2866ca6329f)
+
+현재, traffic을 보고 라우팅을 한다고 가정하겠습니다.
+초기 상태에서 (traffic=0), d와 c와 b에 각각 1 , e(e<1) , 1의 traffic이 들어왔다고 가정해봅시다.
+d -> a로 가는 경로의 traffic은 1이고
+c -> b로 가는 경로의 traffic은 e고,
+b -> a로 가는 경로의 traffic은 1+e가 될 것입니다. 왜냐하면 이 경로는 c에서 출발한 traffic과 b에서 출발한 traffic을 포함하니까요.
+
+![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/b811f8f5-3cb7-49fd-94e1-d543cf2bb442)
+
+이렇게 바뀌겠네요.
+
+
+그럼 또 현재 상황을 기준으로 라우팅을 합니다.
+d와 c와 b에 각각 1 , e(e<1) , 1의 traffic이 들어왔다고 가정해봅시다.
+b는 반시계방향으로 a에 도달하는데 1+e의 traffic이 있음을 압니다.
+하지만 시계방향으로 간다면 0+0+1 = 1의 traffic이 있음을 깨닫고, 시계 방향으로 노선을 꺾습니다.
+
+![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/4b90df42-bcac-4c80-b8bb-50b85d34225f)
+
+이러한 상황이 계속 반복되는 것이죠.
+![image](https://github.com/amm0124/amm0124.github.io/assets/108533909/aed64203-47f3-40dd-be17-cdb47b42454f)
+
+이를 진동 문제라고 합니다. 현재 traffic 상황에 맞추어서 라우팅을 하다 보니, 진동 문제를 겪을 수 밖에 없는 것이죠.
+
+### 마무리하며
+
+이제 다음 글에서, 이러한 진동 문제에 대한 해결에 초점을 맞추는 라우팅 프로토콜에 대해서 이야기해보도록 하겠습니다.
 
