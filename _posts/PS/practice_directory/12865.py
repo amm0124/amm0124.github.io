@@ -1,5 +1,7 @@
 import sys
 
+a=dict()
+
 n,k=map(int,sys.stdin.readline().split()) #물건 수, 제한
 dp=[[0 for _ in range(k+1)] for _ in range(n+1)]
 answer=0
