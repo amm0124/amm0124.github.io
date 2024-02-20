@@ -1,0 +1,46 @@
+import sys
+from collections import deque
+
+n,m,v=map(int,sys.stdin.readline().split())
+graph=[[] for _ in range(n+1)]
+for _ in range(m) :
+    v1,v2=map(int,sys.stdin.readline().split())
+    graph[v1].append(v2)
+    graph[v2].append(v1)
+
+for i in range(1,n+1) :
+    graph[i].sort()
+    graph[i].reverse()
+    
+#dfs
+stack=deque()
+visited=[False for _ in range(n+1)]
+stack.append(v)
+answer=[]
+while stack :
+    now=stack.pop()
+    if visited[now] :
+        continue
+    visited[now]=True
+    answer.append(str(now))
+    for node in graph[now] :
+        if visited[node]==False : #node를 방문하지 않았다면
+            stack.append(node)
+print(*answer)
+answer2=[]
+queue=deque()
+visited=[False for _ in range(n+1)]
+queue.append(v)
+while queue :
+    now=queue.popleft()
+    if visited[now] :
+        continue
+    visited[now]=True
+    answer2.append(str(now))
+    for idx in range(len(graph[now])-1,-1,-1) :
+        node=graph[now][idx]
+        if visited[node]==False : #node를 방문하지 않았다면
+            queue.append(node)
+print(*answer2)
+
+
