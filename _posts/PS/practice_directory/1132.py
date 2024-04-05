@@ -33,7 +33,7 @@ for chars in arr :
     for char in chars :
         if char not in alphabet_dict :
             alphabet_dict[char]=-1
-#print(alphabet_dict)
+
 alphabet=list(alphabet_dict)
 
 print(solution(0, set()))
