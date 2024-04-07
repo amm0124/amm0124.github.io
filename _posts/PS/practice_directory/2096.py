@@ -18,13 +18,5 @@ for i in range(n) :
         dp_min[1]=min([zero, one, two])+board[1] 
         dp_min[2]=min(one, two)+board[2] 
     
-    
 print(max(dp_max))
 print(min(dp_min))       
-"""boards=[list(map(int, sys.stdin.readline().split())) for _ in range(n)]
-max_dp=[boards[0], boards[1], boards[2]]
-min_dp=[boards[0], boards[1], boards[2]]
-
-#dp=[[0 for _ in range(n)] for _ in range(n)]
-for board in boards[1:]:
-    pass"""
