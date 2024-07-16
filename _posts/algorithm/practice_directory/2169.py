@@ -15,16 +15,21 @@ for row in range(1,n) :
     # 위로 내려온 케이스
     for col in range(m) :
         dp[row][col]=dp[row-1][col]+board[row][col]
-    print(dp[row])
-    # 오른쪽으로 만난 경우
+
+    # 오른쪽으로 진행하는 경우
+    tmp1=[0 for _ in range(m)]
+    tmp1[0]=dp[row][0]
     for col in range(1,m) :
-        if dp[row][col] < dp[row][col-1] + board[row][col]:
-            dp[row][col]=dp[row][col-1] + board[row][col]
-    print(dp[row])
+        tmp1[col]=max(tmp1[col-1]+ board[row][col], dp[row][col])
+    
+    # 왼쪽으로 진행하는 경우
+    tmp2=[0 for _ in range(m)]
+    tmp2[-1]=dp[row][-1]
     for col in range(m-2,-1,-1) :
-        if dp[row][col] < dp[row][col+1]+ board[row][col]:
-            dp[row][col]=dp[row][col+1]+ board[row][col]
-    print(dp[row])
-    print("-----------------------")
-print(dp)
+        tmp2[col] = max(tmp2[col+1]  + board[row][col] , dp[row][col])
+
+    for col in range(m) :
+        dp[row][col]=max(tmp1[col], tmp2[col])
+        
+#print(dp)
 print(dp[n-1][m-1])

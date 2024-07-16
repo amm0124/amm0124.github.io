@@ -1,0 +1,34 @@
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+1
+aaaaaaaaaaaaaaaaaaaaaaaaaaaa 
+0
+
+aaaa 
+1
+aaa
+
+
+# cf error
+
+# 2240
+
+
+import sys
+t,w=map(int,sys.stdin.readline().split())
+position=[0]+[int(input()) for _ in range(t)]
+
+dp=[[0 for _ in range(w+1)] for _ in range(t+1)] 
+
+
+for row in range(1,t+1) :
+    for col in range(w+1) :
+        now_position=position[row]
+        point = 1 if (now_position==1 and w%2==0) or (now_position==2 and w%2!=0) else 0
+        #max(움직이지 않고 얻는 점수 ,움직여서 얻는 점수 )
+        if col==0:
+            dp[row][col]=dp[row-1][col]+point
+        else :
+            dp[row][col]=max( dp[row-1][col], dp[row-1][col-1]) + point
+        
+        
+print(max(dp[-1]))

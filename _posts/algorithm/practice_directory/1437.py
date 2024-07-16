@@ -1,0 +1,1 @@
+n=int(input()); ans=[2 for _ in range(n+1)]
