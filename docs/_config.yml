@@ -39,7 +39,7 @@ baseurl:
 theme: jekyll-theme-satellite
 
 exclude:
-  - _posts
+  - post
 
 collections:
   pages:
