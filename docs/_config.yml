@@ -1,9 +1,11 @@
-title: Example.com
-description: "Introduction for you blog"
+title: hello
+description: "Satellite - jekyll blog theme"
 logo_img: "/assets/img/favicon.webp"
-profile_img: "/assets/img/profile.webp"
-
+profile_img: "https://avatars.githubusercontent.com/u/108533909?s=400&u=f87abc33eb5ff78f65668241f0cdabc3a9c7af6d&v=4"
+profile_description: "This is a description for the profile image zzzz"
+#"/assets/img/profile.webp"
 # Social Links
+
 email: example@gmail.com
 github_username: github
 twitter_username: twitter
@@ -18,6 +20,9 @@ giscus_category:
 giscus_categoryId:
 goatcounter_code:
 google_analytics:
+
+
+
 
 # If your repo name follows the format "<user-name>.github.io", then leave the below blank.
 # Otherwise, set its value as "/<repo-name>". ex) baseurl: /myblog
