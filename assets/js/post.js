@@ -150,14 +150,16 @@ window.addEventListener('load', function(){
     // Highlighter
     hljs.highlightAll();
 
+
     // Disable code highlights to the plaintext codeblocks
     document.querySelectorAll('.language-text, .language-plaintext').forEach(function(codeblock){
-        codeblock.querySelectorAll('.hljs-keyword, .hljs-meta, .hljs-selector-tag').forEach(function($){
-            $.outerHTML = $.innerHTML;
-        });
+         codeblock.querySelectorAll('.hljs-keyword, .hljs-meta, .hljs-selector-tag').forEach(function($){
+             $.outerHTML = $.innerHTML;
+         });
     });
 
     // Initialize/Change Giscus theme
+    /*
     var giscusTheme = "light";
 
     const giscus_repo = document.querySelector('meta[name="giscus_repo"]').content;
@@ -190,7 +192,7 @@ window.addEventListener('load', function(){
         let giscusScript = document.createElement("script");
         Object.entries(giscusAttributes).forEach(([key, value]) => giscusScript.setAttribute(key, value));
         document.body.appendChild(giscusScript);
-    }
+    }*/
 
     // code clipboard copy button
     async function copyCode(block) {
@@ -220,6 +222,7 @@ window.addEventListener('load', function(){
         }
     });
 
+
     // Giscus IMetadataMessage event handler
     function handleMessage(event) {
         if (event.origin !== 'https://giscus.app') return;
@@ -235,6 +238,7 @@ window.addEventListener('load', function(){
             commentCount.innerText = '0';
         }
     }
-        
+
+    
     window.addEventListener('message', handleMessage);
 });
