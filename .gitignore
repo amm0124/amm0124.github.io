@@ -7,3 +7,6 @@ _site/
 *.gem
 Gemfile.lock
 vendor
+
+markdown-template.md
+_guide/
