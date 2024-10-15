@@ -1,4 +1,3 @@
 User-agent: *
-Disallow:
-Allow: /feed.xml
+Allow: /
 Sitemap: http://amm0124.github.io/sitemap.xml
