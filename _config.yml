@@ -36,6 +36,7 @@ baseurl:
 
 # Build settings
 plugins:
+  - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-loading-lazy
 
