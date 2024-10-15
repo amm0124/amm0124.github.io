@@ -4,10 +4,10 @@ tags:
     - Git
     - GitHub
     - LFS
-date: "2024-10-01"
+date: 2024-10-13 21:30:00 +
 thumbnail: "https://github.com/user-attachments/assets/268aa4db-c8dc-4f77-81af-1f3af820213b"
 categories : Git/GitHub
-description: "Github LFS."
+description: Github LFS
 ---
 
 # 들어가기에 앞서
