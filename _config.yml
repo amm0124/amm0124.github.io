@@ -1,7 +1,17 @@
-title: hello
+title: Internet Record
 description: "Satellite - jekyll blog theme"
 logo_img: "/assets/img/favicon.webp"
-profile_img: "/assets/img/profile.webp"
+profile_img: "https://avatars.githubusercontent.com/u/108533909?s=400&u=f87abc33eb5ff78f65668241f0cdabc3a9c7af6d&v=4"
+
+profile_description: "hello" 
+profile_description2: >
+  In the one and only true way.
+
+  The object-oriented version of ‘Spaghetti code’ is, 
+  
+  of course, ‘Lasagna code’. (Too many layers).  
+
+#"/assets/img/profile.webp"
 
 # Social Links
 email: amm0124@naver.com
@@ -12,12 +22,13 @@ linkedin_username: linkedin
 facebook_username: facebook
 
 # External API
-# giscus_repo: "byanko55/jekyll-theme-satellite"
-#giscus_repoId: "R_kgDOJ6fqWg"
-# giscus_category: "Q&A"
-# giscus_categoryId: "DIC_kwDOJ6fqWs4Cc7p7"
-# goatcounter_code: byanko77
-# google_analytics:
+giscus_repo: 
+giscus_repoId: 
+giscus_category: 
+giscus_categoryId:
+goatcounter_code: amm0124
+google_analytics:
+
 
 # If your repo name follows the format "<user-name>.github.io", then leave the below blank.
 # Otherwise, set its value as "/<repo-name>". ex) baseurl: /myblog
@@ -53,4 +64,4 @@ kramdown:
   hard_wrap: true
 
 
-goatcounter_code: amm0124
+goatcounter_code: amm0124blog
