@@ -36,7 +36,6 @@ baseurl:
 
 # Build settings
 plugins:
-  - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-loading-lazy
@@ -56,12 +55,19 @@ defaults:
       type: "pages"
     values:
       layout: "page"
-      date: "1900-01-01"
 
 # Markdown newline activator 
 kramdown:
   input: GFM
   hard_wrap: true
 
-
 goatcounter_code: amm0124blog
+
+# seo
+
+author : amm0124
+social :
+  name : amm0124
+  links : 
+    - amm0124.github.io
+    - https://github.com/amm0124
