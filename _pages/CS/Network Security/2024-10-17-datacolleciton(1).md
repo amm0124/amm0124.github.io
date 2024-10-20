@@ -3,13 +3,24 @@ title: "[CS/Network Security] 네트워크보안 - Data Collection(1)"
 tags:
     - CS
     - Network Security
+    - Data Collection
     - Network
     - Security
+    - host file
+    - domain 
+    - traceroute
+    - Cybersecurity
+
 date: 2024-10-17 12:00:00 +
 thumbnail: "https://github.com/user-attachments/assets/c9107ed4-ad2e-4d67-be25-cf41b5e37df8"
 categories : Network Security
-description: Network Security - 정보 수집에 대해 알아보자.
+description: Network Security - 정보 수집을 본격적으로 하기 전 네트워크 지식에 대해 알아보자.
 ---
+
+## 서론
+
+정보 수집을 본격적으로 하기 전 네트워크 지식에 대해 알아보자.
+host file과 domain server, Ip tracking(traceroute)에 대해 알아보자.
 
 ## 정보의 열람
 
@@ -81,3 +92,6 @@ UDP에서 TTL이 0이 되고, port에 도달하지 못했다면, `port unreachab
 
 참고로 `linux에선 traceroute고, window에서 tracer`이다. [https://visualtraceroute.net/](https://visualtraceroute.net/)을 사용하면 어떤 route를 거쳐가는지 시각적으로 확인할 수 있다.
 
+## 마무리하며
+
+host file과 domain server, Ip tracking(traceroute)에 대해 알아보았다.
