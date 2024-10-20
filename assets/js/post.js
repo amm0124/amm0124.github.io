@@ -128,6 +128,17 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 });
 
+
+/*
+
+const requestURL = 'https://amm0124blog.goatcounter.com/counter.json`
+var resp = new XMLHttpRequest();
+        resp.open('GET', requestURL);
+        resp.onerror = function() { pageHits.innerText = "0"; };
+        resp.onload = function() { pageHits.innerText = JSON.parse(this.responseText).count; };
+        resp.send();
+*/
+
 window.addEventListener('load', function(){
     // Page Hits
     const pageHits = document.getElementById('page-hits');
