@@ -14,9 +14,17 @@
         {% endfor %}
         <br>
     </div>
+
     <div class="tags">
-        <a href="{{ '/tag/' | prepend: site.baseurl }}#{{page.tag}}-ref">Tags : {{page.tag}}</a>
+      Tags:
+      {% for tag in page.tags %}
+          <a href="{{ '/tag/' | prepend: site.baseurl }}#{{ tag | downcase | replace: ' ', '-' }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
+      {% endfor %}
     </div>
+
+    <!-- <div class="tags">
+        <a href="{{ '/tag/' | prepend: site.baseurl }}#{{page.tag}}-ref">Tags : {{page.tag}}</a>
+    </div> -->
     {% else %}
       {{ site.banner }}
     {% endif %}
