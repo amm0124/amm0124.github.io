@@ -22,9 +22,6 @@
       {% endfor %}
     </div>
 
-    <!-- <div class="tags">
-        <a href="{{ '/tag/' | prepend: site.baseurl }}#{{page.tag}}-ref">Tags : {{page.tag}}</a>
-    </div> -->
     {% else %}
       {{ site.banner }}
     {% endif %}
@@ -35,17 +32,3 @@
   </div>
 </div>
 
-
-
-<!-- 
-배너입니다.
-
-{% if page.categories != null %}
-<a href="{{ '/categories/' | prepend: site.baseurl }}#{{page.categories}}-ref">Categories : {{page.categories}}</a>	/
-<a href="{{ '/tag/' | prepend: site.baseurl }}#{{page.tag}}-ref">Tags : {{page.tag}}</a>
-{% else %}
-
-category == null : banner.html에서 수정할 수 있습니다.
-
-{{ site.banner }}
-{% endif %} -->

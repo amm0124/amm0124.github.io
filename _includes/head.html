@@ -4,6 +4,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>{{ page.title | append: ' - ' |append: site.name }}</title>
 	
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="referrer" content="always">
+	<meta name="format-detection" content="telephone=no">
+	<meta name="description" content="{{ page.content | strip_html | truncate: 160 }}">
+	<meta name="keywords" content="{{ page.title | append: ', ' | append: site.name | append: ', ' | append: site.meta_description}}">
+	<meta name="description" content="{{site.meta_description}}">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="{{page.url}}">
+	<meta property="og.article.author" content="{{site.author.name}}">
+	<meta property="og:site_name" content="{{site.name}}">	
+	<meta name="by" content="{{site.author.name}}">
+	
 	<link rel="shortcut icon" href="{{ '/styles/images/favicon.ico' | prepend: site.baseurl }}">
 	<link rel="icon" href="{{ '/styles/images/favicon.ico' | prepend: site.baseurl }}">
 
@@ -13,13 +25,7 @@
 	<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl }}">
 	<link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ '/feed.xml' | prepend: site.baseurl }}">
 	
-	<meta name="keywords" content="{{ page.title | append: ', ' | append: site.name | append: ', ' | append: site.meta_description}}">
-	<meta name="description" content="{{site.meta_description}}">
-
 	<script src="{{ '/styles/js/jquery.min.js' | prepend: site.baseurl }}"></script>
-	<!--[if lt IE 9]>
-    	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  	<![endif]-->
   	<script>
 		var _hmt = _hmt || [];
 		(function() {
