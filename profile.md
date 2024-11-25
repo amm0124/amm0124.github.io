@@ -1,16 +1,30 @@
 ---
 layout: post
-title: 我的书单
-permalink: /books/
+title: Profile
+permalink: /profile/
 ---
+
+<!-- 
+여기를 수정하려면 main의 profile.md를 수정하세요
+
+
+
+- dd
++ dd 
+- dd
+- dd 
++ 
+
+
 
 * content
 {:toc}
 
+<여기를 수정하려면 main의 profile.md를 수정하세요>
+
 
 2016书单
 -----------------------------------------------------------------
-
 + 《Think in java 4th》
 + 《鸟哥的Linux私房菜基础学习篇-第三版》
 + 《重构》
@@ -21,4 +35,4 @@ permalink: /books/
 + 《Maven实战》
 + 《HTTP协议详解》
 + 《TCP/IP协议详解-卷一》
-+ 《阿弥陀佛么么哒》
++ 《阿弥陀佛么么哒》 -->

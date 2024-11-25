@@ -1,23 +1,26 @@
 # Site settings
-name: Less Or More
-email: luoyan35714@126.com
-author: Freud Kang
-url: http://www.hifreud.com
-resume_site: http://www.hifreud.com/Resume.io/
-github: https://github.com/luoyan35714/
-baseurl: "/LessOrMore"
-description: Actually, less is more!
-meta_description: 康志华;个人博客;学而不思则罔;思而不学则殆;生命不止;折腾不休
-motto: It's our wits that make us men.
-banner: 学而不思则罔，思而不学则殆。
+name: 건호김 블로그
+email: amm012450@gmail.com
+author: 건호 김
+url: http://amm0124.github.io
+resume_site: https://www.rallit.com/resumes/1356352@amm0124/%EA%B9%80%EA%B1%B4%ED%98%B8?theme=UNIVERSE
+github: https://github.com/amm0124/
+baseurl: ""
+description: # Stay hungry, stay foolish
+#In the one and only true way. The object-oriented version of ‘Spaghetti code’ is, of course, ‘Lasagna code’. (Too many layers).<br> - (E.W. Dijkstra)
+
+# Stay hungry, stay foolish  # home main description
+meta_description: Stay hungry, stay foolish  #home main description康志华;个人博客;学而不思则罔;思而不学则殆;生命不止;折腾不休
+motto:  Stay hungry, stay foolish #It's our wits that make us men. -> # tag/category main description
+banner: In the one and only true way. The object-oriented version of ‘Spaghetti code’ is, of course, ‘Lasagna code’. (Too many layers).<br> - (E.W. Dijkstra) #学而不思则罔，思而不学则殆。
 
 #permalink: /:categories/:year/:month/:day/:title/
 permalink: /:year/:month/:day/:title/
-paginate: 10
+paginate: 10 
 
 exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
 
-github_username: luoyan35714
+github_username: amm0124
 
 # Build settings
 markdown: kramdown

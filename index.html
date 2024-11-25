@@ -1,4 +1,5 @@
 ---
+title : main
 layout: default
 ---
 
@@ -7,7 +8,7 @@ layout: default
         <div class="col-md-3">
           <div class="sidebar hidden-print" role="complementary">
             <div id="navigation">
-              <h1>目录</h1>
+              <h1>목차</h1>
               <ul class="nav sidenav">
                 {% capture topping %}false{% endcapture %}
                 {% for post in site.posts  %}
@@ -17,7 +18,7 @@ layout: default
                   {% endif %}
                 {% endfor %}
                 {% if topping == 'true' %}
-                  <li><a href="#topping">置顶</a>
+                
                 {% endif %}
 
                 {% for post in site.posts  %}
@@ -71,7 +72,7 @@ layout: default
               
                 {% if topping == 'true' %}
                 <h2 class="topping">
-                  置顶文章
+                  고정 게시글
                   <span class="anchor-target" id="topping"></span>
                   <a href="#topping" name="topping" class="anchor glyphicon glyphicon-link"></a>
                 </h2>

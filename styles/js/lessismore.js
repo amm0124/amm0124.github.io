@@ -24,7 +24,7 @@
       repairTheImagesWhichCrossTheMaxWidth();
     }
 
-    // 重新计算图片显示大小。
+    // 重新计算图片显示大小。-> 한국어 : 이미지 크기 다시 계산
   	function repairTheImagesWhichCrossTheMaxWidth(){
   		var images = $(".docs-content img");
   		if(images != undefined && images.length > 0){

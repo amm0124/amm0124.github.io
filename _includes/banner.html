@@ -1,11 +1,43 @@
 
 <div class="banner">
   <div class="container">
-  	{% if page.categories != null %}
-    	<a href="{{ '/categories/' | prepend: site.baseurl }}#{{page.categories}}-ref">{{page.categories}}</a>	/
-    	<a href="{{ '/tag/' | prepend: site.baseurl }}#{{page.tag}}-ref">{{page.tag}}</a>
+
+    {% if page.categories %}
+    <div class="categories">
+        Categories:
+        <a href="{{ '/' | prepend: site.baseurl }}">Home</a> / 
+        {% for category in page.categories %}
+            <a href="{{ '/categories/' | prepend: site.baseurl }}#{{ category | slugify }}-ref" class="category-link">
+                {{ category }}
+            </a>
+            {% if forloop.last == false %}/ {% endif %}
+        {% endfor %}
+        <br>
+    </div>
+    <div class="tags">
+        <a href="{{ '/tag/' | prepend: site.baseurl }}#{{page.tag}}-ref">Tags : {{page.tag}}</a>
+    </div>
     {% else %}
-    	{{ site.banner }}
+      {{ site.banner }}
     {% endif %}
+
+
+
+
   </div>
 </div>
+
+
+
+<!-- 
+배너입니다.
+
+{% if page.categories != null %}
+<a href="{{ '/categories/' | prepend: site.baseurl }}#{{page.categories}}-ref">Categories : {{page.categories}}</a>	/
+<a href="{{ '/tag/' | prepend: site.baseurl }}#{{page.tag}}-ref">Tags : {{page.tag}}</a>
+{% else %}
+
+category == null : banner.html에서 수정할 수 있습니다.
+
+{{ site.banner }}
+{% endif %} -->
