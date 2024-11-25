@@ -7,6 +7,10 @@ permalink: /profile/
 <!-- 
 여기를 수정하려면 main의 profile.md를 수정하세요
 
+sitemap: 
+    changefreq : daily
+    priority : 0.8
+상단에 달아도 됨
 
 
 - dd

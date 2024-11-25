@@ -1,12 +1,10 @@
 # Site settings
 name: Internet Home
 email: amm012450@gmail.com
-author: 건호 김
 url: http://amm0124.github.io
 resume_site: https://www.rallit.com/resumes/1356352@amm0124/%EA%B9%80%EA%B1%B4%ED%98%B8?theme=UNIVERSE
 github: https://github.com/amm0124/
 baseurl: ""
-description: Stay hungry, stay foolish # feed.xml description Stay hungry, stay foolish
 #In the one and only true way. The object-oriented version of ‘Spaghetti code’ is, of course, ‘Lasagna code’. (Too many layers).<br> - (E.W. Dijkstra)
 
 meta_description: meta descriton #Stay hungry, stay foolish
@@ -24,17 +22,24 @@ github_username: amm0124
 # Build settings
 markdown: kramdown
 
-
 plugins:
-  - jekyll-sitemap
-  - jekyll-seo-tag
+  #- jekyll-seo-tag
   - jekyll-loading-lazy
 
 #seo
-author : amm0124
+title: Stay hungry, stay foolish - Internet Home
+description: Stay hungry, stay foolish # feed.xml description Stay hungry, stay foolish
+author: 
+  name : 건호 김
+  url : ""
+tagline : "건호김 블로그 tagline"
+twitter:
+  username: amm0124
+  card: summary
+
+
 social :
   name : amm0124
   links : 
-    - amm0124.github.io
     - https://github.com/amm0124
-
+    - https://m.blog.naver.com/internet_home
