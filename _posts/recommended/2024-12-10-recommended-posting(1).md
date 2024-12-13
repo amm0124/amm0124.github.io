@@ -1,6 +1,6 @@
 ---
 layout : post
-title: "[추천] Dos - SYN Flooding Attack으로 알아보는 GO에서 3-way handshaking의 backlog 값 변경하기"
+title: "[추천] SYN Flooding Attack으로 알아보는 GO에서 3-way handshaking의 backlog 값 변경하기"
 tag : [recommended, network, Dos, DDos, SYN Flooding]
 date: 2024-12-10 09:30:00 +
 categories : [추천]
@@ -23,14 +23,24 @@ sitemap:
 
 > `DoS(Denial of Service`의 `SYN Flooding Attack - SYN Cookie`를 공부하다 읽은 글이다. 이해하기 쉽도록 설명이 되어서 추천한다.
 
-`backlog queue(글에선 SYN queue라고 표현하였다)`는 수신 SYN 패킷을 저장하고, 타임아웃시 재시도하는 역할을 하는 queue이다. backlog queue, Accept queue의 관점으로 바라보는 `SYN Flooding attack`에 대한 글이다. 특이한 점은 `Go Lang의 기본 TCP 서버(net/http)는` backlog 값 변경을 지원하지 않고 128로 고정했다는 점이다. 이를 변경하기 위해선 내가 찾아본 바로는 대략 3가지 방식이 존재하는 거 같다.
+`backlog queue(글에선 SYN queue라고 표현하였다)`는 수신 SYN 패킷을 저장하고, 타임아웃시 재시도하는 역할을 하는 queue이다. backlog queue, Accept queue의 관점으로 바라보는 `SYN Flooding attack`에 대한 글이다. 특이한 점은 `Go Lang의 기본 TCP 서버(net/http)는` backlog 값 변경을 지원하지 않고 128로 고정했다는 점이다. 이를 변경하기 위해선 내가 찾아본 바로는 대략 3가지 방식이 존재하는 거 같다. 
+
+
+
+**2024.12.13 추가 : Go의 기본 설정을 바꾸는 것 보다는, nginx와 같은 웹 서버를 프론트 프록시 서버로 두어, 로드밸런싱을 하는 것이 더 좋을 것 같다. 그리고 실제 요청을 처리하는 WAS(Web Application Server)는 사설 네트워크로 감싸서 안전하게 Syn Flooding 공격을 대응하는 것이 좋다고 생각이 든다.**
+
 
 
 ### 1번 방식 - OS 설정 파일 직접 변경
 
 > 시스템에 전역적으로 적용되는 백로그 설정을 변경하는 방법이다. 이로 인한 책임은 개발자의 몫이다.
 
-Linux OS 기준으로 `/etc/sysctl.conf` 파일의 `tcp_max_syn_backlog` 값을 직접 변경하는 방법이다. 하지만 이는 시스템 전체에 적용되기에, 위험이 따르는 것 같다.
+Linux OS 기준으로 `/etc/sysctl.conf` 파일의 ~~`tcp_max_syn_backlog` 값을 직접 변경하는 방법이다. 최근에는 net.core.somaxconn의 값을 수정한다고 한다.~~ 하지만 이는 시스템 전체에 적용되기에, 위험이 따르는 것 같다.
+
+**2024.12.13 추가 :  [https://brunch.co.kr/@alden/5](tcp_syncookies는 어떻게 동작하는가?), [https://brunch.co.kr/@alden/6](syn_backlog와 somaxconn 파라미터) `리눅스 커널 이야기` 저자 `강진우`님의 brunch story에 의하면, 위 두 파라미터는 변경 즉시 애플리케이션에 영향을 끼치지 않는다고 한다. 이에 대해서는 다음 포스팅에 더 자세하게 다루도록 하겠다.**
+
+**사담이지만, 확실히 이런 시스템쪽 내용을 다루는 것이 재밌다. 어제 Go를 다루는 회사에 어제 면접을 다녀왔는데, Go 언어가 되게 좋은 점이 많은 것 같다. 문법도 간편하고, 비동기 처리도 간편하고, 아무튼 언어에 대해 흥미가 생겼다.  `그림으로 배우는 리눅스 구조` 책이 Go 언어를 통해 리눅스 커널을 다루는 예제가 많던데, 시험 끝나고 이번 기회에 리눅스 커널 구조도 다시 공부하고, Go 언어에 대해서도 공부를 해봐야겠다.**
+
 
 ### 2번 방식 - 라이브러리를 통한 저수준 소켓 API 사용
 
