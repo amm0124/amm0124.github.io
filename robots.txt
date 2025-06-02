@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://amm0124.github.io/sitemap.xml
-Host: https://amm0124.github.io
 
+Sitemap: https://amm0124.github.io/sitemap.xml
