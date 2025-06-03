@@ -77,9 +77,11 @@ layout: default
                 <ul>
                   {% for post in site.posts  %}
                     {% if post.topping %}
-                      <ol class="breadcrumb">
-                        <li><span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
-                      </ol>
+                      <li>
+                        <div class="breadcrumb">
+                          <span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                        </div>
+                      </li>
                     {% endif %}
                   {% endfor %}
                 </ul>
@@ -106,9 +108,12 @@ layout: default
                     <ul>
                   {% endif %}
 
-                  <ol class="breadcrumb">
-                   <li><span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></li>
-                  </ol>
+                  <li>
+                    <div class="breadcrumb">
+                      <span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo; <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+                    </div>
+                  </li>
+                  
                   {% if forloop.last %}
                     </ul>
                   {% else %}
