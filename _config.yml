@@ -1,35 +1,33 @@
 # Site settings
-name: Internet Home
-email: amm012450@gmail.com
-url: https://amm0124.github.io
-resume_site: https://www.rallit.com/resumes/1356352@amm0124/%EA%B9%80%EA%B1%B4%ED%98%B8?theme=UNIVERSE
-github: https://github.com/amm0124/
-baseurl: ""
+# name, description, motto -> blog header
 
-
-# SEO 메타 정보. description + motto가 헤더에 뜸
-title: "Stay hungry, stay foolish - Internet Home"
-description: "개발자 건호김의 기술 블로그입니다. 프로그래밍, 알고리즘, 웹 개발에 대한 지식과 경험을 공유합니다. Stay hungry, stay foolish."
-meta_description: "개발자 건호김의 기술 블로그 - 프로그래밍, 알고리즘, 웹 개발 지식 공유"
-motto: "Stay hungry, stay foolish"
+# blog header
+name: "Internet Home" # main blog name 
+description: "건호김 Tech Blog"  # 
 banner: "In the one and only true way. The object-oriented version of 'Spaghetti code' is, of course, 'Lasagna code'. (Too many layers).<br> - (E.W. Dijkstra)" # 배너 (적용됨)
-tagline: "건호김 블로그 - 개발 여정과 기술 탐구"
+#motto:  # Stay hungry, stay foolish
 
-# SEO 설정
+
+# settings
+resume_site: "https://www.rallit.com/resumes/1356352@amm0124/%EA%B9%80%EA%B1%B4%ED%98%B8?theme=UNIVERSE"
+github: "https://github.com/amm0124" 
+email: "amm012450@gmail.com"
+tagline: "Stay hungry, stay foolish" 
+github_username: amm0124
+
+
+
+
+# SEO
+title: "Internet Home - 건호김 Tech Blog" # <title> tag
+meta_description: "건호김 tech blog - SEO 중요" # <meta name="description" content = "meta_description"> 
+url: "https://amm0124.github.io"
+baseurl: "" #현재 웹사이트. local or https: , https://amm0124.github.io로 바꿔야 할 듯
 locale: "ko_KR"
 timezone: "Asia/Seoul"
 lang: "ko"
 
-# 퍼머링크 설정
-permalink: /:year/:month/:day/:title/
-paginate: 10
-
-exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile', 'node_modules', 'vendor']
-
-# GitHub 정보
-github_username: amm0124
-
-# 작성자 정보 (SEO용으로 개선)
+# SEO - author 
 author:
   name: "건호 김"
   email: "amm012450@gmail.com"
@@ -37,26 +35,41 @@ author:
   bio: "컴퓨터 과학을 공부하는 개발자입니다. 알고리즘과 웹 개발에 관심이 많습니다."
   location: "South Korea"
 
-# 소셜 미디어 정보
+# SEO - image
+logo: "/assets/images/logo.png"  # 로고 이미지 경로 (있다면)
+image: "/assets/images/og-image.png"  # Open Graph 기본 이미지 (있다면)
+
+# SEO - Twitter 카드 설정
+twitter:
+  username: amm0124
+  card: summary_large_image
+
+# SEO - 소셜 미디어 정보
 social:
   name: "건호 김"
   links:
     - https://github.com/amm0124
     - https://m.blog.naver.com/internet_home
 
-# Twitter 카드 설정
-twitter:
-  username: amm0124
-  card: summary_large_image
+# SEO 플러그인 추가 설정
+seo:
+  type: Person
 
+# SEO - Google Web Master
 google_site_verification: "LJzToDdm_Fv8FYSNuI8_g_7n4eJP_AdWoR3xIaDNCUY"  # Google Search Console
 google_analytics: "G-HK62XBRBR3"  # Google Analytics
 
-# Build settings
+# 퍼머링크 설정
+permalink: /:year/:month/:day/:title/
+paginate: 10
+
+exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile', 'node_modules', 'vendor']
+
+
+# markdown and code block 
 markdown: kramdown
 highlighter: rouge
 
-# Kramdown 설정
 kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
@@ -66,16 +79,13 @@ kramdown:
     block:
       line_numbers: false
 
-# 플러그인
+# plugins
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-loading-lazy
 
-# SEO 플러그인 추가 설정
-seo:
-  type: Person
 
 # Feed 설정
 feed:
@@ -91,22 +101,6 @@ sitemap:
     - "*.css"
     - "*.js"
     - /404.html
-
-
-# 기본 이미지 (OG 이미지용)
-logo: "/assets/images/logo.png"  # 로고 이미지 경로 (있다면)
-image: "/assets/images/og-image.png"  # Open Graph 기본 이미지 (있다면)
-
-# 웹마스터 도구 인증 (필요시 추가)
-# naver_site_verification: ""
-# bing_site_verification: ""
-
-# 기타 SEO 관련 설정
-future: false
-show_excerpts: true
-excerpt_separator: "<!--more-->"
-
-
 
 
 # Site settings
