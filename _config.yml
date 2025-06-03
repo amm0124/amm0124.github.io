@@ -5,6 +5,7 @@
 name: "Internet Home" # main blog name 
 description: "건호김 Tech Blog"  # 
 banner: "In the one and only true way. The object-oriented version of 'Spaghetti code' is, of course, 'Lasagna code'. (Too many layers).<br> - (E.W. Dijkstra)" # 배너 (적용됨)
+blog_description:  "건호김 Tech Blog"  
 #motto:  # Stay hungry, stay foolish
 
 
@@ -20,7 +21,7 @@ github_username: amm0124
 
 # SEO
 title: "Internet Home - 건호김 Tech Blog" # <title> tag
-meta_description: "건호김 tech blog - SEO 중요" # <meta name="description" content = "meta_description"> 
+meta_description: "건호김 tech blog" # <meta name="description" content = "meta_description"> 
 url: "https://amm0124.github.io"
 baseurl: "" #현재 웹사이트. local or https: , https://amm0124.github.io로 바꿔야 할 듯
 locale: "ko_KR"
