@@ -92,60 +92,12 @@ plugins:
 feed:
   excerpt_only: true
 
-# 사이트맵 설정
+# 사이트맵 설정 (수정됨)
 sitemap:
   exclude:
     - /feed.xml
     - /rss.xml
-    - /sitemap.xml
     - /assets/
     - "*.css"
     - "*.js"
     - /404.html
-
-
-# Site settings
-#name: Internet Home
-#email: amm012450@gmail.com
-#url: http://amm0124.github.io
-#resume_site: https://www.rallit.com/resumes/1356352@amm0124/%EA%B9%80%EA%B1%B4%ED%98%B8?theme=UNIVERSE
-#github: https://github.com/amm0124/
-#baseurl: ""
-##In the one and only true way. The object-oriented version of ‘Spaghetti code’ is, of course, ‘Lasagna code’. (Too many layers).<br> - (E.W. Dijkstra)
-#
-#meta_description: meta descriton #Stay hungry, stay foolish
-#motto:  # Stay hungry, stay foolish
-#banner: In the one and only true way. The object-oriented version of ‘Spaghetti code’ is, of course, ‘Lasagna code’. (Too many layers).<br> - (E.W. Dijkstra) #学而不思则罔，思而不学则殆。
-#
-##permalink: /:categories/:year/:month/:day/:title/
-#permalink: /:year/:month/:day/:title/
-#paginate: 10
-#
-#exclude: ['README.md', 'Gemfile.lock', 'Gemfile', 'Rakefile']
-#
-#github_username: amm0124
-#
-## Build settings
-#markdown: kramdown
-#
-#plugins:
-# - jekyll-seo-tag
-# - jekyll-loading-lazy
-#
-##seo
-#title: Stay hungry, stay foolish - Internet Home
-#description: Stay hungry, stay foolish # feed.xml description Stay hungry, stay foolish
-#author:
-# name : 건호 김
-# url : ""
-#tagline : "건호김 블로그 tagline"
-#twitter:
-# username: amm0124
-# card: summary
-#
-#
-#social :
-# name : amm0124
-# links :
-#   - https://github.com/amm0124
-#   - https://m.blog.naver.com/internet_home
