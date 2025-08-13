@@ -12,7 +12,7 @@ layout: default
         </h2>
         <div class="post-meta">
             <span>{{ post.date | date: "%B %d, %Y" }}</span>
-            <span class="reading-time-inline">{{ post.content | reading_time }}</span>
+            <span class="reading-time-inline">{% assign words = post.content | number_of_words %}{% if words < 200 %}1분 읽기{% else %}{{ words | divided_by: 200 | ceil }}분 읽기{% endif %}</span>
         </div>
         <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
     </article>
