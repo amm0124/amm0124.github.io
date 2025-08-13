@@ -30,6 +30,10 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+# Category pages
+category_dir: category
+category_layout: category
+
 # Default values
 defaults:
   - scope:
@@ -38,6 +42,10 @@ defaults:
     values:
       layout: "post"
       author: "amm0124"
+  - scope:
+      path: "category"
+    values:
+      layout: "category"
   - scope:
       path: ""
     values:
