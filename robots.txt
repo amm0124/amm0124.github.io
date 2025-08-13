@@ -1,17 +1,8 @@
 User-agent: *
 Allow: /
 
-# Block crawling of admin areas or sensitive paths
-Disallow: /admin/
-Disallow: /private/
-
-# Allow important pages
-Allow: /feed.xml
-Allow: /sitemap.xml
-
 # Sitemap
-Sitemap: {{ site.url }}/sitemap.xml
-Sitemap: {{ site.url }}/feed.xml
+Sitemap: https://amm0124.github.io/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1
