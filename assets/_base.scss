@@ -1,0 +1,145 @@
+// Reset and base styles
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Variables
+:root {
+    --primary-color: #1a202c;
+    --secondary-color: #4a5568;
+    --accent-color: #3182ce;
+    --text-primary: #1a202c;
+    --text-secondary: #4a5568;
+    --text-muted: #64748b;
+    --bg-primary: #fafafa;
+    --bg-secondary: #ffffff;
+    --border-color: #e2e8f0;
+    --border-light: #f1f5f9;
+    --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --radius: 8px;
+    --radius-lg: 12px;
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+    --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+    --line-height: 1.6;
+}
+
+// Base typography
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: var(--line-height);
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 0.5em;
+    color: var(--text-primary);
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.1rem; }
+h6 { font-size: 1rem; }
+
+// Paragraphs
+p {
+    margin-bottom: 1em;
+    color: var(--text-secondary);
+}
+
+// Links
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+        color: #2c5aa0;
+    }
+}
+
+// Lists
+ul, ol {
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+}
+
+li {
+    margin-bottom: 0.25em;
+    color: var(--text-secondary);
+}
+
+// Blockquotes
+blockquote {
+    margin: 1.5em 0;
+    padding: 1em 1.5em;
+    border-left: 4px solid var(--accent-color);
+    background: var(--bg-secondary);
+    font-style: italic;
+    
+    p {
+        margin-bottom: 0;
+    }
+}
+
+// Images
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+// Tables
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5em 0;
+    font-size: 0.9em;
+}
+
+th, td {
+    padding: 0.75em;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    font-weight: 600;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+// Horizontal rule
+hr {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 2em 0;
+}
+
+// Selection
+::selection {
+    background: rgba(49, 130, 206, 0.2);
+    color: var(--text-primary);
+}
+
+// Focus styles
+*:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}

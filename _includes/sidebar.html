@@ -1,0 +1,20 @@
+<aside class="sidebar">
+    <div class="profile">
+        <div class="profile-name">{{ site.author }}</div>
+        <div class="profile-role">Backend Developer</div>
+    </div>
+    
+    <div class="categories">
+        <h3>Categories</h3>
+        <ul>
+            <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>전체</a></li>
+            {% assign categories = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+            {% for category in categories %}
+                {% if category != '' %}
+                    {% assign posts_count = site.posts | where: 'categories', category | size %}
+                    <li><a href="{{ '/category/' | append: category | relative_url }}">{{ category }} ({{ posts_count }})</a></li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</aside>

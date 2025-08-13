@@ -1,0 +1,70 @@
+---
+layout: default
+---
+
+<section id="category-section">
+    <h1 class="section-title">{{ page.title }}</h1>
+    
+    {% assign posts = page.posts | default: site.posts %}
+    {% assign filtered_posts = posts | where: "categories", page.category %}
+    {% assign current_page = page.page | default: 1 %}
+    {% assign total_pages = page.total_pages | default: 1 %}
+    
+    {% if page.posts %}
+        {% assign display_posts = page.posts %}
+    {% else %}
+        {% assign display_posts = filtered_posts %}
+    {% endif %}
+    
+    {% if display_posts.size > 0 %}
+        {% for post in display_posts %}
+        <article class="post" data-category="{{ post.categories.first }}">
+            <h2 class="post-title">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h2>
+            <div class="post-meta">
+                <span>{{ post.date | date: "%B %d, %Y" }}</span>
+                <span class="reading-time-inline">{{ post.content | reading_time }}</span>
+            </div>
+            <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+        </article>
+        {% endfor %}
+        
+        <!-- Pagination -->
+        {% if total_pages > 1 %}
+        <div class="pagination">
+            {% if current_page > 1 %}
+                {% assign prev_page = current_page | minus: 1 %}
+                {% if prev_page == 1 %}
+                    <a href="{{ '/category/' | append: page.category | relative_url }}">Prev</a>
+                {% else %}
+                    <a href="{{ '/category/' | append: page.category | append: '/page/' | append: prev_page | relative_url }}">Prev</a>
+                {% endif %}
+            {% else %}
+                <span class="disabled">Prev</span>
+            {% endif %}
+
+            {% for page_num in (1..total_pages) %}
+                {% if page_num == current_page %}
+                    <span class="current">{{ page_num }}</span>
+                {% elsif page_num == 1 %}
+                    <a href="{{ '/category/' | append: page.category | relative_url }}">{{ page_num }}</a>
+                {% else %}
+                    <a href="{{ '/category/' | append: page.category | append: '/page/' | append: page_num | relative_url }}">{{ page_num }}</a>
+                {% endif %}
+            {% endfor %}
+
+            {% if current_page < total_pages %}
+                {% assign next_page = current_page | plus: 1 %}
+                <a href="{{ '/category/' | append: page.category | append: '/page/' | append: next_page | relative_url }}">Next</a>
+            {% else %}
+                <span class="disabled">Next</span>
+            {% endif %}
+        </div>
+        {% endif %}
+    {% else %}
+        <div class="no-posts">
+            <p>이 카테고리에는 아직 포스트가 없습니다.</p>
+        </div>
+    {% endif %}
+</section>

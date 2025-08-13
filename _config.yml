@@ -1,0 +1,54 @@
+# Site settings
+title: Devlog
+description: 공부한 내용을 올립니다.
+author: amm0124
+email: amm012450@gmail.com
+baseurl: "https://amm0124.github.io"
+url: "https://amm0124.github.io"
+github_username: amm0124
+
+# SEO settings
+lang: ko-KR
+timezone: Asia/Seoul
+keywords: [백엔드, 개발자, Python, JavaScript, Database, DevOps, 기술블로그, 개발경험]
+social:
+  name: amm0124
+  links:
+    - https://github.com/amm0124
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: /:year/:month/:day/:title/
+paginate: 5
+paginate_path: "/page:num/"
+
+# Category pagination
+category_pagination_enabled: true
+category_posts_per_page: 5
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:categories/:year/:month/:day/:title/
+
+# Default values
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "amm0124"
+  - scope:
+      path: ""
+    values:
+      layout: "default"

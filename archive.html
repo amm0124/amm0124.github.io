@@ -1,0 +1,31 @@
+---
+layout: default
+title: Archive
+permalink: /archive/
+description: 모든 블로그 포스트를 연도별로 정리한 아카이브 페이지입니다.
+keywords: [블로그, 아카이브, 포스트, 백엔드, 개발, 기술블로그]
+---
+
+<section id="archive-section">
+    <h1 class="section-title">Archive</h1>
+    
+    <div class="archive-content">
+        {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+        {% for year in posts_by_year %}
+            <div class="year-group">
+                <h2 class="year-title">{{ year.name }}</h2>
+                <div class="posts-list">
+                    {% for post in year.items %}
+                        <div class="archive-post">
+                            <span class="post-date">{{ post.date | date: "%m-%d" }}</span>
+                            <a href="{{ post.url | relative_url }}" class="post-title">{{ post.title }}</a>
+                            {% if post.categories.size > 0 %}
+                                <span class="post-category">[{{ post.categories | first }}]</span>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
