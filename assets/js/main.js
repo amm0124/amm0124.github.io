@@ -188,4 +188,59 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = this.href;
         });
     });
+
+    // 코드 복사 기능
+    function initCodeCopyButtons() {
+        const codeBlocks = document.querySelectorAll('.highlight');
+        
+        codeBlocks.forEach(block => {
+            // 복사 버튼 생성
+            const copyButton = document.createElement('button');
+            copyButton.className = 'copy-btn';
+            copyButton.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>';
+            copyButton.setAttribute('aria-label', '코드 복사');
+            
+            // 버튼을 코드 블록에 추가
+            block.appendChild(copyButton);
+            
+            // 클릭 이벤트 리스너 추가
+            copyButton.addEventListener('click', async function() {
+                const code = block.querySelector('pre code') || block.querySelector('pre');
+                if (!code) return;
+                
+                const textContent = code.textContent;
+                
+                try {
+                    await navigator.clipboard.writeText(textContent);
+                    
+                    // 성공 피드백
+                    this.classList.add('copied');
+                    
+                    // 2초 후 원래 상태로 복원
+                    setTimeout(() => {
+                        this.classList.remove('copied');
+                    }, 2000);
+                    
+                } catch (err) {
+                    // 폴백: 텍스트 선택 방식
+                    const textArea = document.createElement('textarea');
+                    textArea.value = textContent;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    
+                    // 성공 피드백
+                    this.classList.add('copied');
+                    
+                    setTimeout(() => {
+                        this.classList.remove('copied');
+                    }, 2000);
+                }
+            });
+        });
+    }
+
+    // 코드 복사 버튼 초기화
+    initCodeCopyButtons();
 });
