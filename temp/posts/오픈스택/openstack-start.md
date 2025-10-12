@@ -2,6 +2,8 @@
 title: "오픈스택 시작하기"
 excerpt: "오픈스택 공식문서 읽기"
 
+type: docs
+
 categories:
   - OpenStack
 tags:

@@ -1,18 +1,8 @@
 ---
 title: 논문
 next: first-page
+sidebar:
+  open: true
 ---
 
-This is a demo of the theme's documentation layout.
-
-## Hello, World!
-
-```go {filename="main.go"}
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello, World!")
-}
-```
+논문 관련 내용

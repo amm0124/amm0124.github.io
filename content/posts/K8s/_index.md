@@ -1,18 +1,9 @@
 ---
 title: K8s
 next: first-page
+sidebar:
+  open: true
 ---
 
-This is a demo of the theme's documentation layout.
+쿠버네티스 관련 내용
 
-## Hello, World!
-
-```go {filename="main.go"}
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello, World!")
-}
-```

@@ -2,6 +2,8 @@
 title: "[CKA] - K8s Architecture"
 excerpt: "CKA"
 
+type: docs
+
 categories:
   - K8s
 tags:

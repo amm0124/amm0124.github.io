@@ -1,9 +1,9 @@
 ---
-title: OpenStack
+title: K8s
 next: first-page
 ---
 
-This is a demo of the theme's documentation layout.
+K8s
 
 ## Hello, World!
 

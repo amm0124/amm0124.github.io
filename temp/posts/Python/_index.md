@@ -1,12 +1,11 @@
 ---
-title: Documentation
+title: Python
 next: first-page
-type: docs
 ---
 
-posts index
+Python 포스팅
 
-## Test Docs
+## Hello, World!
 
 ```go {filename="main.go"}
 package main

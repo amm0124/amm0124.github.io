@@ -2,6 +2,9 @@
 title: "[FastAPI] - SQLAlchemy 사용 시의 유의점"
 excerpt: "SQLAlchemy를 통한 유의사항"
 
+type: docs
+
+
 categories:
   - Python
 tags:

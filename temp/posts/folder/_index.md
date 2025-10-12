@@ -1,6 +1,6 @@
 ---
 title: Folder
-type: posts
+type: docs
 prev: posts/first-page
 next: posts/folder/leaf
 sidebar:

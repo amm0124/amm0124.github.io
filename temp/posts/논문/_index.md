@@ -1,12 +1,14 @@
 ---
-title: Documentation
-next: first-page
+title: 논문
 type: docs
+next: first-page
+sidebar:
+  open: true
 ---
 
-posts index
+This is a demo of the theme's documentation layout.
 
-## Test Docs
+## Hello, World!
 
 ```go {filename="main.go"}
 package main
