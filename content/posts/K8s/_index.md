@@ -1,6 +1,7 @@
 ---
 title: K8s
 next: first-page
+comments: false
 sidebar:
   open: true
 ---

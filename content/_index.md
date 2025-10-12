@@ -1,6 +1,7 @@
 ---
 title: Cloud & Security Engineering
 layout: hextra-home
+comments: false
 ---
 
 <div class="hx:mx-auto hx:max-w-screen-xl hx:px-6 hx:md:px-8">
