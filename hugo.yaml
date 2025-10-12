@@ -82,4 +82,10 @@ params:
     enable: true
     type: giscus
 
-
+    giscus:
+    repo: amm0124/amm0124.github.io
+    repoId: R_kgDONUQhfA
+    category: General
+    categoryId: DIC_kwDONUQhfM4CwiXw
+    mapping: pathname
+    lang: ko
