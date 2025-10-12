@@ -1,5 +1,5 @@
 ---
-title: Documentation
+title: 논문
 next: first-page
 ---
 

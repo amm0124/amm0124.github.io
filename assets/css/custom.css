@@ -1,0 +1,27 @@
+.hextra-sidebar-container {
+    width: 21rem;
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.hextra-toc {
+    width: 20rem;
+}
+
+aside.sidebar {
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.sidebar-container {
+    padding-left: 1rem;
+}
+
+.hextra-max-footer-width {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.hextra-custom-footer {
+    display: none;
+}

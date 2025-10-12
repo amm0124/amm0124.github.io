@@ -1,5 +1,5 @@
 # Hugo configuration file
-title: My Site
+title: Internet Home
 
 # import hextra as module
 module:
@@ -18,15 +18,12 @@ markup:
 
 menu:
   main:
-    - name: Docs
-      pageRef: /docs
+    - name: Posts
+      pageRef: /posts
       weight: 1
     - name: About
       pageRef: /about
       weight: 2
-    - name: Contact ↗
-      url: "https://github.com/imfing"
-      weight: 3
     - name: Search
       weight: 4
       params:
@@ -36,21 +33,53 @@ menu:
       url: "https://github.com/imfing/hextra-starter-template"
       params:
         icon: github
-    - name: Twitter
-      weight: 6
-      url: "https://twitter.com/"
-      params:
-        icon: x-twitter
 
 params:
+  theme:
+    # light | dark | system
+    default: dark
+    displayToggle: true
+
+  page:
+    # full (100%), wide (90rem), normal (1280px)
+    width: full
+
   navbar:
     displayTitle: true
-    displayLogo: false
+    displayLogo: true
+    logo:
+      # path: images/logo/logo-black.png
+      # dark: images/logo/logo-white.png
+      width: 40
+      height: 20
+      link: /
+    width: full
 
-  footer:
-    displayCopyright: false
-    displayPoweredBy: true
+  highlight:
+    copy:
+      enable: true
+      # hover | always
+      display: always
+
+  search:
+    enable: true
+    type: flexsearch
+    flexsearch:
+      # index page by: content | summary | heading | title
+      index: heading
 
   editURL:
     enable: true
-    base: "https://github.com/imfing/hextra-starter-template/edit/main/content"
+    base: https://github.com/imfing/hextra-starter-template/edit/main/content
+
+  footer:
+    enable: true
+    displayCopyright: true
+    displayPoweredBy: true
+    width: full
+
+  comments:
+    enable: true
+    type: giscus
+
+
