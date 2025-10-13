@@ -2,6 +2,7 @@
 title: Cloud & Security Engineering
 layout: hextra-home
 comments: false
+description: "Cloud Infrastructure & Security Engineering blog. Sharing knowledge about Kubernetes, OpenStack, cloud security, and system architecture."
 ---
 
 <div class="hx:mx-auto hx:max-w-screen-xl hx:px-6 hx:md:px-8">
