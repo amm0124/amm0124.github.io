@@ -1,5 +1,11 @@
 # Hugo configuration file
 title: Internet Home
+baseURL: https://amm0124.github.io/
+languageCode: en-us
+
+# SEO settings
+enableRobotsTXT: true
+enableGitInfo: true
 
 # import hextra as module
 module:
@@ -35,6 +41,8 @@ menu:
         icon: github
 
 params:
+  description: "Cloud Infrastructure & Security Engineering blog. Sharing knowledge about Kubernetes, OpenStack, cloud security, and system architecture."
+
   theme:
     # light | dark | system
     default: dark
@@ -88,3 +96,7 @@ params:
       categoryId: DIC_kwDONUQhfM4CwiXw
       mapping: pathname
       lang: en
+
+services:
+  googleAnalytics:
+    ID: G-HK62XBRBR3
