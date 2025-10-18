@@ -1,10 +1,8 @@
 ---
-title: About
+title: Abouts
 type: about
 description: "Cloud Infrastructure & Security Engineer specializing in Kubernetes, OpenStack, and distributed systems"
 ---
-
-# About Me
 
 Cloud Infrastructure & Security Engineer with expertise in container orchestration, cloud-native technologies, and system architecture.
 
