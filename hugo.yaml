@@ -43,6 +43,8 @@ menu:
 params:
   description: "Cloud Infrastructure & Security Engineering blog. Sharing knowledge about Kubernetes, OpenStack, cloud security, and system architecture."
 
+  favicon: images/logo/logo.png
+
   theme:
     # light | dark | system
     default: dark
