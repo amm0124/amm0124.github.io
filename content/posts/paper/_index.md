@@ -1,5 +1,5 @@
 ---
-title: 논문
+title: paper
 next: first-page
 comments: false
 sidebar:
