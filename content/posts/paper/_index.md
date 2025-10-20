@@ -1,9 +1,9 @@
 ---
-title: paper
+title: Paper, Publication
 next: first-page
 comments: false
 sidebar:
   open: true
 ---
 
-논문 관련 내용
+paper and publication
