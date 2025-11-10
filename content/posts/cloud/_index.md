@@ -1,5 +1,5 @@
 ---
-title: K8s
+title: CNCF
 next: first-page
 comments: false
 sidebar:

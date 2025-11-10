@@ -552,3 +552,6 @@ kubectl get svc -n=<namespace>
 같은 네임스페이스 안에 있으면 service 이름으로 접근 가능 (host name - full dns 안 해도 됨)
 다른 네임스페이스 안에 있으면 full dns 해야 함
 
+
+
+
