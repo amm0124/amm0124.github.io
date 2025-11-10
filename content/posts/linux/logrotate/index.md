@@ -1,19 +1,19 @@
 ---
-title: "Log rotate의 두 종류"
-excerpt: "Log rotate의 두 종류"
+title: "[Linux] - logrotate"
+excerpt: "linux log rotate"
 
 type: docs
 
 categories:
   - Linux
 tags:
-  - [Cloud Native, Cloud, K8s]
+  - [Linux, utility]
 
 toc: true
 toc_sticky: true
 
-date: 2025-09-29
-last_modified_at: 2025-09-29
+date: 2025-11-10
+last_modified_at: 2025-11-10
 ---
 
 ## logrotate
