@@ -47,7 +47,19 @@ last_modified_at: 2025-11-10
 
 {{< figure src="logrotation-rename-and-create.png" caption="Rename and Create 방식의 logrotate" >}}
 
-`rename and create` 방식은 `copy and truncate` 방식에서의 `race condition` 방지에 도움을 줄 수 있다. 로그 파일 이름이 변경되더라도, `파일 디스크립터(fd)`는 유지가 되기 때문이다. 따라서 `tailer`는 작업이 완료될 때까지 로그 파일을 계속해서 읽을 수 있다. 하지만, `rename and truncate` 방식에도 문제점이 존재하는데, `appender`에게 새로운 파일을 열도록 신호를 보내야 한다는 것이다. 로그 파일 이름은 같지만, 파일 자체는 다르기 때문에 `파일 디스크립터` 또한 다를 것이다. 따라서 `appender`은 새로 파일을 열어야 한다. 열지 않으면, 이름이 변경된 `error.log.1`에 로그를 계속 쓰게 되는 문제점이 발생할 것이다.
+`rename and create` 방식은 `copy and truncate` 방식에서의 `race condition` 방지에 도움을 줄 수 있다. 로그 파일 이름이 변경되더라도, `파일 디스크립터(fd)`는 유지가 되기 때문이다. 따라서 `tailer`는 작업이 완료될 때까지 로그 파일을 계속해서 읽을 수 있다. 하지만, `rename and create` 방식에도 문제점이 존재하는데, `appender`에게 새로운 파일을 열도록 신호를 보내야 한다는 것이다. 로그 파일 이름은 같지만, 파일 자체는 다르기 때문에 `파일 디스크립터` 또한 다를 것이다. 따라서 `appender`은 새로 파일을 열어야 한다. 열지 않으면, 이름이 변경된 `error.log.1`에 로그를 계속 쓰게 되는 문제점이 발생할 것이다.
+
+
+## non-kubernetes
+
+리눅스 머신에서는 logrotate 유틸리티에 의해 처리되는 경우가 존재한다. 
+
+
+
+## in kubernetes
+
+`pod`의 로그는 노드에 저장되며 `promtail`과 같은 로그 에이전트는 노드 파일에서 pod 로그를 스크래핑한다. 
+kubelet process를 통해 로그 로테이션을 관리하도록 구성할 수 있다. `kubelet`은 `copy and truncate` 방식은 지원하지 않고, `rename and create` 방식만 현재 지원한다. 
 
 ## 참고 자료
 
