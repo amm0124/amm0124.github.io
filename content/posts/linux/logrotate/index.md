@@ -54,7 +54,7 @@ last_modified_at: 2025-11-10
 
 리눅스 머신에서는 logrotate 유틸리티에 의해 처리되는 경우가 존재한다. 
 
-
+dd
 
 ## in kubernetes
 
